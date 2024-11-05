@@ -25,10 +25,13 @@ import java.time.LocalDateTime;
 @RequestMapping("/api")
 public class PriceController {
 
+    // If we needed to manage session, cache, etc., this could extend this class from an AbstractController.
+
     private final PriceService priceService;
 
     /**
-     * Method to retrieve the price of a product.
+     * Method to retrieve the price of a specific product on a given date.
+     * If the price is not found in the controller, it will return a 404 status.
      *
      * @param brandId        Brand identifier.
      * @param productId      Product identifier.

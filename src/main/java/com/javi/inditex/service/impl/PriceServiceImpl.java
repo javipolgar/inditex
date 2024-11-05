@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -28,6 +29,7 @@ public class PriceServiceImpl implements PriceService {
 
     /**
      * Method to retrieve the price of a specific product on a given date.
+     * In this controller, the @ControllerAdvice returns a 404 status when the price is not found.
      */
     @Override
     public PriceResponse getPrice(int productId, int brandId, LocalDateTime applicationDate) {
@@ -35,10 +37,9 @@ public class PriceServiceImpl implements PriceService {
 
         if (prices == null || prices.isEmpty()){
             throw new NotFoundException("Price not found for productId: " + productId
-                    + ", brandId: " + brandId + ", applicationDate: " + applicationDate);        }
+                    + ", brandId: " + brandId + ", applicationDate: " + applicationDate);
+        }
 
-
-
-        return PriceMapper.toDto(prices.get(0));
+        return PriceMapper.toDto(prices.getFirst());
     }
 }
