@@ -76,4 +76,13 @@ class PriceControllerIntegrationTest {
 				.andExpect(jsonPath("$.price").value(38.95));
 	}
 
+	@Test
+	public void testGetPriceAndReturnNotFound() throws Exception{
+		mockMvc.perform(get(URL)
+						.param("brandId", "33")
+						.param("productId", "35455")
+						.param("applicationDate", "2020-06-16T21:00:00"))
+				.andExpect(status().isNotFound());
+	}
+
 }
