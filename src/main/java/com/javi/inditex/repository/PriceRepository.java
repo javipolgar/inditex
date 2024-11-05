@@ -11,16 +11,17 @@ import java.util.List;
 
 
 /**
- * Repositorio para gestionar las operaciones de la entidad PriceEntity.
+ * Repository for managing operations on the PriceEntity.
  */
 @Repository
 public interface PriceRepository extends JpaRepository<PriceEntity, Integer> {
 
 
     /**
-     * Método para encontrar precios basados en el identificador del producto,
-     * el identificador de la marca y la fecha de aplicación en orden descendente de prioridad.
+     * Method to find prices based on the product identifier,
+     * brand identifier, and application date in descending order of priority.
      */
+
     @Query("SELECT p FROM PriceEntity p WHERE p.productId = :productId AND p.brandId = :brandId "
             + "AND :applicationDate BETWEEN p.startDate AND p.endDate "
             + "ORDER BY p.priority DESC")

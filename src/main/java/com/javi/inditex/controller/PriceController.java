@@ -16,9 +16,9 @@ import java.time.LocalDateTime;
 
 
 /**
- * Controlador para manejar las solicitudes relacionadas con los precios.
- * Este controlador proporciona un endpoint REST para consultar el precio de un producto
- * basado en su identificador, el identificador de la marca y la fecha de aplicación.
+ * Controller to handle requests related to prices.
+ * This controller provides a REST endpoint to query the price of a product
+ * based on its identifier, the brand identifier, and the application date.
  */
 @RestController
 @RequiredArgsConstructor
@@ -28,13 +28,14 @@ public class PriceController {
     private final PriceService priceService;
 
     /**
-     * Método para obtener el precio de un producto.
+     * Method to retrieve the price of a product.
      *
-     * @param brandId        Identificador de la marca.
-     * @param productId      Identificador del producto.
-     * @param applicationDate Fecha y hora de aplicación del precio.
-     * @return ResponseEntity con el precio encontrado o un error.
+     * @param brandId        Brand identifier.
+     * @param productId      Product identifier.
+     * @param applicationDate Date and time of price application.
+     * @return ResponseEntity with the found price or an error.
      */
+
     @GetMapping("/price")
     public ResponseEntity<PriceResponse> getPrice(
             @RequestParam @NotNull int brandId,

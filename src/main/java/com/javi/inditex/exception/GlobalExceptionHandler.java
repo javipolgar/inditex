@@ -8,16 +8,16 @@ import org.springframework.web.context.request.WebRequest;
 
 
 /**
- * Clase de prueba para GlobalExceptionHandler.
- * Esta clase verifica el comportamiento del manejador de excepciones
- * al lanzar NotFoundException.
+ * Test class for GlobalExceptionHandler.
+ * This class verifies the behavior of the exception handler
+ * when a NotFoundException is thrown.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
     /**
-     * Prueba para el método handlePriceNotFoundException.
-     * Verifica que se maneje correctamente la excepción NotFoundException.
+     * Test for the handlePriceNotFoundException method.
+     * Verifies that the NotFoundException is handled correctly.
      */
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<?> handleNotFoundException(NotFoundException ex, WebRequest request) {

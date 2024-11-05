@@ -15,9 +15,10 @@ import java.util.List;
 
 
 /**
- * Implementación del servicio de precios.
- * Esta clase maneja la lógica para obtener precios de productos.
+ * Implementation of the price service.
+ * This class handles the logic for retrieving product prices.
  */
+
 @Service
 @RequiredArgsConstructor
 public class PriceServiceImpl implements PriceService {
@@ -26,7 +27,7 @@ public class PriceServiceImpl implements PriceService {
 
 
     /**
-     * Método para obtener el precio de un producto específico en una fecha determinada.
+     * Method to retrieve the price of a specific product on a given date.
      */
     @Override
     public PriceResponse getPrice(int productId, int brandId, LocalDateTime applicationDate) {
